@@ -163,11 +163,13 @@ main {
    Dato che il cerchio ha una larghezza totale di 24px (16px + 4px*2),
    lo sposto indietro di metà (12px) per allineare il suo centro. */
 .timeline-item:nth-child(odd)::after {
-    right: -12px;
+    right: 0; /* Lo allineo al bordo destro dell'item */
+    transform: translateX(50%); /* Lo sposto verso destra di metà della sua stessa larghezza */
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -12px;
+    left: 0; /* Lo allineo al bordo sinistro dell'item */
+    transform: translateX(-50%); /* Lo sposto verso sinistra di metà della sua stessa larghezza */
 }
 
 .timeline-content {
@@ -288,7 +290,7 @@ footer {
 @media screen and (max-width: 768px) {
     /* Per il mobile, ho spostato la linea della timeline tutta a sinistra. */
     .timeline::after {
-        left: 20px;
+        left: 15px;
     }
     
     /* Tutti gli item ora occupano l'intera larghezza. */
@@ -300,13 +302,14 @@ footer {
     
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        left: 0;
+        left: 8px;
+        text-align: left;
     }
 
     /* Ho posizionato tutti i puntini per allinearli
        alla posizione della linea. */
     .timeline-item::after {
-        left: 8px; 
+        left: -10px; /* Posiziono il bordo sinistro del puntino esattamente dove inizia la linea*/
     }
     
     /* I box dei KPI vengono impilati verticalmente per una migliore leggibilità. */

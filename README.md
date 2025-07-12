@@ -17,7 +17,7 @@ Il sito è pubblicato e accessibile tramite GitHub Pages al seguente indirizzo: 
 **CSS3:** Per lo styling, il layout (flexbox) e il design responsivo (media queries).
 **Git e GitHub:** per il controllo di versione e il deployment tramite GitHub Pages.
 
-##Autore
+## Autore
 **Lucia Buondonno**
 Matricola: 0312301641
 Corso: L-31 - Informatica per le aziende digitali
