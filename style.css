@@ -1,0 +1,317 @@
+/* --- Reset Globale e Stili di Base --- */
+/* Ho iniziato con un reset globale per azzerare i margini e i padding
+   predefiniti del browser, garantendo un controllo totale sul layout e
+   risolvendo problemi di spaziature indesiderate. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+/* Ho definito gli stili di base per l'intero documento, scegliendo un font
+   leggibile (Roboto), colori scuri per un'estetica premium e un'interlinea
+   che migliora la leggibilità dei testi. */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #181818;
+    color: #E0E0E0;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Ho impostato un peso maggiore per i titoli e gli elementi importanti
+   per creare una chiara gerarchia visiva. */
+h1, h2, h3, .kpi-value, .download-btn {
+    font-weight: 700;
+}
+
+/* --- Stile dell'Header --- */
+/* L'header è stato progettato per avere un forte impatto visivo,
+   con uno sfondo nero e un bordo rosso che richiama immediatamente
+   il brand Ferrari. */
+header {
+    background-color: #000;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 4px solid #D20000;
+}
+
+.logo {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    color: #ccc;
+    font-weight: 300;
+}
+
+/* --- Contenitore Principale --- */
+/* Ho limitato la larghezza massima del contenuto principale per migliorare
+   la leggibilità dei testi lunghi, centrando il tutto nella pagina. */
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- Stile Titoli di Sezione --- */
+/* Per coerenza visiva, ho creato uno stile comune per tutti i titoli
+   delle sezioni principali. */
+.pillars h2, 
+.timeline-section h2, 
+.kpi-section h2, 
+.download-section h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #D20000;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.pillars, 
+.timeline-section,
+.download-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* --- Sezione Pilastri --- */
+/* Ho usato flexbox per disporre le card dei pilastri in modo flessibile
+   e ordinato, con uno spazio uniforme tra di loro. */
+.pillar-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.pillar-card {
+    background: #252525;
+    padding: 25px;
+    flex-basis: 30%;
+    min-width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.pillar-card h3 {
+    color: #D20000;
+    margin-top: 0;
+}
+
+/* --- Sezione Timeline --- */
+/* La timeline è l'elemento più complesso. Ho usato il posizionamento relativo
+   e assoluto per creare la linea verticale e allineare gli eventi. */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* La linea centrale verticale, creata con un pseudo-elemento. */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #D20000;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px; 
+}
+
+/* Ogni item della timeline è posizionato relativamente. */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+/* I "puntini" sulla linea, creati con un altro pseudo-elemento. */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 4px solid #D20000;
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1; /* Li metto sopra la linea verticale. */
+}
+
+/* Sposto i puntini per centrarli perfettamente sulla linea.
+   Dato che il cerchio ha una larghezza totale di 24px (16px + 4px*2),
+   lo sposto indietro di metà (12px) per allineare il suo centro. */
+.timeline-item:nth-child(odd)::after {
+    right: -12px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -12px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: #2c2c2c;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.timeline-year {
+    font-size: 1.5em;
+    color: #D20000;
+    margin-bottom: 10px;
+}
+
+/* --- Sezione KPI --- */
+/* Questa sezione ha uno sfondo nero per creare stacco visivo
+   e dare massimo risalto ai numeri. */
+.kpi-section {
+    text-align: center;
+    margin-bottom: 80px;
+    background-color: #000;
+    padding: 50px 20px;
+}
+
+.kpi-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.kpi-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.kpi-value {
+    font-size: 3.5em;
+    color: #D20000;
+}
+
+.kpi-label {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+/* --- Sezione Download Report --- */
+/* Ho strutturato le card dei report in modo simile ai pilastri per
+   mantenere coerenza visiva in tutta la pagina. */
+.report-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.report-card {
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 25px;
+    flex-basis: 30%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Ho aggiunto un semplice effetto al passaggio del mouse per migliorare
+   l'interattività e dare un feedback visivo all'utente. */
+.report-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.report-card h3 {
+    color: #D20000;
+    margin-top: 0;
+}
+
+.report-card p {
+    flex-grow: 1; /* Questa regola assicura che i pulsanti siano sempre allineati in basso. */
+    margin-bottom: 20px;
+}
+
+/* Il pulsante di download è stato stilizzato per essere evidente
+   e invitare al click, usando il colore del brand. */
+.download-btn {
+    display: block;
+    background-color: #D20000;
+    color: #fff;
+    text-align: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #a00000;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    background-color: #000;
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+}
+
+/* --- Media Queries per la Responsività --- */
+/* Questa è la sezione più importante per garantire che il sito sia
+   utilizzabile anche su dispositivi mobili. Ho definito un breakpoint a 768px. */
+@media screen and (max-width: 768px) {
+    /* Per il mobile, ho spostato la linea della timeline tutta a sinistra. */
+    .timeline::after {
+        left: 20px;
+    }
+    
+    /* Tutti gli item ora occupano l'intera larghezza. */
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    /* Ho posizionato tutti i puntini per allinearli
+       alla posizione della linea. */
+    .timeline-item::after {
+        left: 8px; 
+    }
+    
+    /* I box dei KPI vengono impilati verticalmente per una migliore leggibilità. */
+    .kpi-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
